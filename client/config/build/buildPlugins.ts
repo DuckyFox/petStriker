@@ -26,6 +26,8 @@ export default function buildPlugins(paths: BuildPath, options: BuildOptions):we
         // плагин для hot обновлений
         new webpack.HotModuleReplacementPlugin(),
         // плагин для анализа размера бандла
-        new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+        }),
     ];
 }
