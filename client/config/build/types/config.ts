@@ -1,3 +1,4 @@
+// Настраиваем типы для конфига webpack
 export type BuildMode = 'production' | 'development'
 
 export interface BuildPath {
