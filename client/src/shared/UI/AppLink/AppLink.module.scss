@@ -1,0 +1,18 @@
+.applink{
+  text-decoration: none;
+}
+
+.applink:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.primary{
+  color: var(--primary-color);
+}
+
+.secondary{
+  color: var(--secondary-color);
+}
+
+

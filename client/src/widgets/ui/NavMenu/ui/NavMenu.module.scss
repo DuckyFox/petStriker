@@ -1,0 +1,19 @@
+.navmenu {
+  width: 100%;
+  height: var(--navbar-height);
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.links{
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+}
+
+.mainLink{
+  color: var(--inverted-color);
+}
+
