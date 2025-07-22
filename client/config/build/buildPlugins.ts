@@ -5,7 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export default function buildPlugins(paths: BuildPath, options: BuildOptions):webpack.WebpackPluginInstance[]{
-    return [
+    const plugins = [
         // плагин для работы с html
         new HtmlWebpackPlugin({
             title: 'Striker',
@@ -23,12 +23,12 @@ export default function buildPlugins(paths: BuildPath, options: BuildOptions):we
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(options.isDev),
         }),
-        // плагин для hot обновлений
-        new webpack.HotModuleReplacementPlugin(),
-        // плагин для анализа размера бандла
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-            openAnalyzer: false,
-        }),
     ];
+
+    if (options.isDev) {
+        plugins.push(new webpack.HotModuleReplacementPlugin());
+        plugins.push(new BundleAnalyzerPlugin({}));
+    }
+
+    return plugins;
 }
