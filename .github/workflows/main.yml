@@ -6,17 +6,32 @@ on:
   pull_request:
     branches: [ master ]
 
+defaults:
+  run:
+    working-directory: client
+
 jobs:
   checkAll:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 20.x ]
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm i
+      - name: build prod project
+        run: nmp run build:prod
+      - name: linting typescript
+        run: nmp run lint:ts
+      - name: linting scss
+        run: nmp run lint:scss
+      - name: build storybook
+        run: nmp run build-storybook
+      - name: unit testing
+        run: nmp run unit
 
