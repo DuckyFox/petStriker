@@ -28,6 +28,7 @@ export default function buildPlugins(paths: BuildPath, options: BuildOptions):we
         // плагин для анализа размера бандла
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
+            openAnalyzer: false,
         }),
     ];
 }
