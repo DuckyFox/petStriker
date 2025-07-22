@@ -25,13 +25,13 @@ jobs:
       - name: install modules
         run: npm i
       - name: build prod project
-        run: nmp run build:prod
+        run: npm run build:prod
       - name: linting typescript
-        run: nmp run lint:ts
+        run: npm run lint:ts
       - name: linting scss
-        run: nmp run lint:scss
+        run: npm run lint:scss
       - name: build storybook
-        run: nmp run build-storybook
+        run: npm run build-storybook
       - name: unit testing
-        run: nmp run unit
+        run: npm run unit
 
